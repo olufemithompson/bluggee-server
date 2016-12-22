@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:text="${post.title}" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
+<link rel="stylesheet"
+	href="/material-design/css/bootstrap-material-design.css"
+	media="screen" />
+<link rel="stylesheet" href="/material-design/css/material-icons.css"
+	media="screen" />
+<link rel="stylesheet" href="/how2.css" media="screen" />
+<link rel="stylesheet" href="css/material-icons.css" />
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header">...</div>
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				
+				<div class="col-sm-12">
+					<h2><span th:text="${post.title}" /></h2>
+					<div class="main_card content_card">
+						<p><span th:text="${post.summary}" /></p>
+					</div>
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+	<script src="/jquery/jquery.min.js">
+	<!--  -->
+		
+	</script>
+	<script src="/bootstrap.min.js">
+	<!--  -->
+		
+	</script>
+	<script src="/material-design/js/material.min.js">
+	<!--  -->
+		
+	</script>
+	<script>
+		$.material.init();
+	</script>
+</body>
+</html>

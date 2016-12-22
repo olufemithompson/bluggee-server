@@ -1,0 +1,60 @@
+<div th:fragment="post">
+<!--article th:each="post : ${posts}" class="card">
+						   
+							<h3 class="post_items">
+								<a th:href="${post.originalUrl}" target="blank"><span th:text="${post.title}" /></a>
+							</h3>
+							
+							<div class="post_img_cont post_items">
+								 <a th:href="${post.originalUrl}" target="blank"><img class="post_img" th:src="${post.image}" /></a> 
+							</div>
+							<div class="post_desc post_items">
+								<span th:text="${post.description}" />
+							</div>
+							
+							<div class="presets post_items">
+							 <span class="presets_items">
+							 	  <a th:href="${post.source.link}">
+								  <img class="source_img" th:src="${'/img/source/'+post.source.image}" />
+								  <span class="source_title"><span th:text="${post.source.name}" /></span>
+								  </a>
+							  </span>
+							
+							</div>
+</article-->
+
+
+
+
+
+<div id="wrapper">
+	<div id="columns">
+		<div th:each="post : ${posts}" class="pin">
+			<h6><a th:href="${post.originalUrl}" target="blank"><span th:text="${post.title}" /></a></h6>
+			<div class="pn_image_div"><a th:href="${post.originalUrl}" target="blank"><img class="pn_image" th:src="${post.image}" /></a></div>
+			
+			<p>
+				<span th:text="${post.description}" />
+			</p>
+			
+			<div class="presets post_items">
+				<span class="presets_items">
+							 	  <a th:href="${post.source.link}">
+								  <img class="source_img" th:src="${'/img/source/'+post.source.image}" />
+								  <span class="source_title"><span th:text="${post.source.name}" /></span>
+								  </a>
+				</span>
+							
+			</div>
+		</div>
+	
+
+	</div>
+</div>
+
+
+
+
+
+
+</div>

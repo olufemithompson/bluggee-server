@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add a new Post</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" href="/material-design/css/bootstrap-material-design.css" media="screen" />
+<link rel="stylesheet" href="/material-design/css/material-icons.css" media="screen" />
+<link rel="stylesheet" href="/how2.css" media="screen" />
+<link rel="stylesheet" href="/bootstrap-tagsinput.css" media="screen" />
+<link rel="stylesheet" href="/jquery.tokenize.css" />
+<link rel="stylesheet" href="/jquery/jquery-ui.css" />
+</head>
+<body>
+	<div th:replace="fragments/header :: header">...</div>
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				
+				<div class="col-sm-12">
+					<h2>Add a new Post</h2>
+					<div class="main_card content_card">
+						<form th:action="@{/post/save}" method="post" class="form-horizontal">
+						<fieldset>
+							<div class="form-group label-floating is-empty">
+					            <label class="control-label" for="focusedInput1">Write a title on what you want to share.</label>
+					            <input class="form-control" id="focusedInput1" type="text" name="title" />
+					        </div>
+					        
+					        <div class="form-group label-floating is-empty">
+				             <label class="control-label" for="textArea">Provide a summary of what you want to share</label>
+				             <textarea class="form-control" rows="5" id="textArea" name="summary"></textarea>
+				             </div>
+				             
+				           	 <div class="form-group label-floating  is-empty">
+				           	  <label class="control-label" for="tokenize">Select topics for this post</label>
+				           	 <select  id="tokenize" multiple="multiple" name="tags" class="form-control tokenize-sample">
+									<option th:each="tag : ${tags}" 
+										th:value="${tag.id}" 
+										th:text="${tag.name}" />
+								</select>
+				           	</div>
+					     
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-raised" name="button">Create</button>
+							</div>
+						</fieldset>
+					</form>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/jquery/jquery.min.js">
+	<!--  -->
+	</script>
+	<script src="/jquery/jquery-ui.min.js">
+	<!--  -->
+	</script>
+	<script src="/bootstrap.min.js">
+	<!--  -->
+	</script>
+	<script src="/material-design/js/material.min.js">
+	<!--  -->
+	</script>
+	<script src="/js/jquery.tokenize.js">
+	<!--  -->
+	</script>
+	<script type="text/javascript"  th:inline="javascript">
+		$.material.init();
+		$('#tokenize').tokenize();
+		
+	
+	</script>
+</body>
+</html>

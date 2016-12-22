@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>How to do anything</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" href="/material-design/css/bootstrap-material-design.css" media="screen" />
+<link rel="stylesheet" href="/material-design/css/material-icons.css" media="screen" />
+<link rel="stylesheet" href="/how2.css" media="screen" />
+<link rel="stylesheet" href="css/material-icons.css" />
+
+</head>
+<body>
+	<div th:replace="fragments/header :: header">...</div>
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-sm-10">
+						<div class="main_card content_card">
+						<article th:each="post : ${posts}">
+							<h2>
+								<a th:href="@{/post/{id}(id=${post.id})}"><span th:text="${post.title}" /></a>
+							</h2>
+							
+							
+							<div class="post_desc">
+								<span th:text="${post.summary}" />
+							</div>
+							
+							<!--div class="post_tag">
+							    <span th:each="skill,iterStat : ${developer.skills}">
+										<span th:text="${skill.label}" class="label label-default"/>
+								</span>
+			          		</div-->
+							
+							<div class="presets">
+								<span class="presets_items"><i class="mdi mdi-show-chart"></i>  <span>10 steps</span></span>
+								
+								<span class="presets_items"><i class="mdi mdi-pageview"></i> <span>20 views</span></span>
+								
+								<span class="presets_items"><i class="mdi mdi-comment"></i> <span>3 comments</span></span>
+								
+								<span class="presets_items"><i class="mdi mdi-location-on"></i>  <span>United States</span></span>
+								
+								
+								
+							</div>
+						</article>
+						
+						
+						<div class="bs-component">
+					         <ul class="pager">
+					            <li class="previous disabled"><a href="javascript:void(0)">← Older</a></li>
+					            <li class="next"><a class="withripple" href="javascript:void(0)">Newer →</a></li>
+					          </ul>
+        				</div>
+
+
+					</div>
+
+
+				</div>
+				<div class="col-sm-2">
+					<div class="ads">
+						<!--img src="/img/banner.jpg" style="width: 170px;" /-->
+					
+					</div>
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer">...</div>
+</body>
+</html>

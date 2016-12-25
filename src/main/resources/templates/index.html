@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>How to do anything</title>
+<title>bluggee-all the great source of content you love in one place.</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/icofont/css/icofont.css" media="screen" />
 <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.css" />
 
-
+<meta name="propeller" content="147a8a91bb7277e70df580fb25d276ba" />
 </head>
 <body>
 	<div th:replace="fragments/header :: header">...</div>
@@ -45,7 +45,9 @@
 
 
 		</div>
+		<div id="loading"><img src="/img/ajax-loader.gif" /></div>
 	</div>
+	
 <div th:replace="fragments/footer :: footer">...</div>
 
 
@@ -59,28 +61,39 @@
      
       <div class="modal-body">
       	<ul  class="nav nav-pills mnav-pills">
-			<li class="active"><a  href="#1a" data-toggle="tab"  style="color:#050A15;">Filter Streams By Category</a></li>
-			<li><a href="#2a" data-toggle="tab" style="color:#050A15;">Filter Streams By Blog Source</a></li>
+			<li class="active"><a  href="#1a" data-toggle="tab"  style="color:#050A15;">Filter Streams By Blog Source</a></li>
+			<!--li><a href="#2a" data-toggle="tab" style="color:#050A15;">Filter Streams By Blog Source</a></li-->
 		</ul>
 		
 			<div class="tab-content clearfix">
 			
 				<div class="tab-pane active" id="1a" style="padding: 20px;">
-				
-				
+					
 					<div class="row">
+				   		<div th:each="cat : ${sources}" class="col-sm-4">
+		       				<div>
+						        <input  th:id="${'cat_'+cat.id}" th:value="${cat.id}" class="checkbox-custom cat_check" name="source" type="checkbox" />
+						        <label  class="checkbox-custom-label"><span th:text="${cat.name}" /></label>
+					        </div>
+		       			
+		       			</div>
+				    </div>
+					
+					
+				
+					<!--div class="row">
 					<div th:each="cat : ${categories}" class="col-sm-4">
 		       			
 		       				<div>
-						        <input th:id="${cat.id}" th:value="${cat.id}" class="checkbox-custom" th:name="${cat.id}" type="checkbox" />
+						        <input th:id="${'cat_'+cat.id}" th:value="${cat.id}" class="checkbox-custom cat_check" th:name="${cat.id}" type="checkbox" />
 						        <label class="checkbox-custom-label"><span th:text="${cat.name}" /></label>
 					        </div>
 		       		</div>
-					</div>
+					</div-->
 		          	
 				</div>
 				
-				<div class="tab-pane" id="2a" style="padding: 20px;">
+				<!--div class="tab-pane" id="2a" style="padding: 20px;">
 				   <div class="row">
 				   		<div th:each="cat : ${sources}" class="col-sm-4">
 		       				<div>
@@ -90,18 +103,20 @@
 		       			
 		       			</div>
 				    </div>
-		        </div>
+		        </div-->
 					
 			</div>
        </div>
       <div class="modal-footer mymodal-footer">
-        <button type="button" class="btn btn-default mymodal-button">All Feeds</button>
-        <button type="button" class="btn btn-default mymodal-button">Filter</button>
+        <!--button type="button" class="btn btn-default mymodal-button" onclick="allfeeds()">All Feeds</button-->
+        <button type="button" class="btn btn-default mymodal-button" onclick="filter()">Filter</button>
         <button type="button" class="btn btn-default mymodal-button"  data-dismiss="modal">Close</button>
       </div>
     </div>
 
   </div>
 </div>
+<script src="/js/jquery.tmpl.js" />
+<script src="/js/bluggee.js" />
 </body>
 </html>

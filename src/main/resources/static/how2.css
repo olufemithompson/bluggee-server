@@ -3,6 +3,13 @@ body {
 }
 
 
+#loading{
+	text-align: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+
 .nmav-pills >li.active > a{
     color: black !important;
 }

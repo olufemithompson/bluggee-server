@@ -23,8 +23,11 @@ $(document).ready(function() {
 	setFormFields();
 	var win = $(window);
 	// Each time the user scrolls
+	console.log("in here");
 	win.on('scroll',function() {
+		console.log("sscrolling");
 		if(stillMore){
+			console.log("still more");
 		// End of the document reached?
 			if ( win.scrollTop() > $(document).height() - win.height()) {
 				doLoad(true);

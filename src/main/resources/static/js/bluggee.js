@@ -26,6 +26,9 @@ $(document).ready(function() {
 	win.on('scroll',function() {
 		if(stillMore){
 		// End of the document reached?
+			console.log("scroll top " + win.scrollTop())
+			console.log("doc height " +  $(document).height())
+			console.log("win height " + win.height())
 			if ( win.scrollTop() > $(document).height() - win.height()) {
 				console.log("has reached last page");
 				doLoad(true);

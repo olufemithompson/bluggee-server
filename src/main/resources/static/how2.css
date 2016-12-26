@@ -2,6 +2,23 @@ body {
 	background: #325E84;
 }
 
+.navbar-header{
+	display:inline-table;
+}
+
+
+.navbar-header > a > span{
+	float: left;
+	line-height: 66px;
+	color: white;
+	font-weight: bold;
+	font-family: monospace;
+}
+
+
+.navbar-header > a > img{
+	float: left;
+}
 
 #loading{
 	text-align: center;

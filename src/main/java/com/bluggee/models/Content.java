@@ -42,6 +42,13 @@ public class Content {
     @Field
     private String uniqueId;
     
+    @Field
+    private Integer sitemapCompleted;
+    
+    
+    @Field
+  	private String formattedTitle;
+    
     @ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="source_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -113,6 +120,22 @@ public class Content {
 
 	public void setUniqueId(String uniqueId) {
 		this.uniqueId = uniqueId;
+	}
+
+	public String getFormattedTitle() {
+		return formattedTitle;
+	}
+
+	public void setFormattedTitle(String formattedTitle) {
+		this.formattedTitle = formattedTitle;
+	}
+
+	public Integer getSitemapCompleted() {
+		return sitemapCompleted;
+	}
+
+	public void setSitemapCompleted(Integer sitemapCompleted) {
+		this.sitemapCompleted = sitemapCompleted;
 	}
 
 

@@ -6,6 +6,35 @@ body {
 	display:inline-table;
 }
 
+.content_title{
+	padding-left: 20px;
+	padding-right: 20px;
+
+}
+
+
+.content_link{
+	color: #E3E8EC;
+    float: right;
+    font-weight: bold;
+}
+
+.content_image{
+		padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+.content_body{
+		padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+.content_main{
+	padding-top: 20px;
+    margin-top: 50px !important;
+}
 
 .navbar-header > a > span{
 	float: left;

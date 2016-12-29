@@ -29,34 +29,8 @@
 
 <div id="wrapper">
 	<div id="columns">
-	
-	    <div class="pin">
-	       <p>
-				<script type="text/javascript">
-				  ( function() {
-				    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
-				    var unit = {"calltype":"async[2]","publisher":"nedomledisi","width":300,"height":250,"sid":"Chitika Default"};
-				    var placement_id = window.CHITIKA.units.length;
-				    window.CHITIKA.units.push(unit);
-				    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-				}());
-				</script>
-				<script type="text/javascript" src="//cdn.chitika.net/getads.js" async="async"></script>
-		    </p>
-		    <div class="presets post_items">
-				<span class="presets_items">
-							 	  <a href="#">
-									  <img class="source_img" src="/img/icon.png'" />
-									  <span class="source_title">sponsored</span>
-								  </a>
-				</span>
-							
-			</div>
-		</div>
-						
-	
-		<div th:each="post : ${posts}" class="pin">
-			<h6><a th:href="${post.originalUrl}" target="blank"><span th:text="${post.title}" /></a></h6>
+	   <div th:each="post : ${posts}" class="pin">
+			<h6><a th:href="${'/post/'+post.uniqueId+'/'+post.title}" target="blank"><span th:text="${post.title}" /></a></h6>
 			<div class="pn_image_div"><a th:href="${post.originalUrl}" target="blank"><img class="pn_image" th:src="${post.image}" /></a></div>
 			
 			<p>
@@ -74,7 +48,6 @@
 			</div>
 		</div>
 	
-
 	</div>
 </div>
 

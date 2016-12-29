@@ -1,15 +1,20 @@
 package com.bluggee.controllers;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.websocket.server.PathParam;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,6 +52,10 @@ public class MainController {
 	 @Autowired
 	 private SearchTermSearch searchTermSearch;
 	 
+	 
+	 @Value("${sitemapDirectory}")
+	 String sitemapDirectory;
+	 
 	  /**
 	   * Index main page.
 	   */
@@ -74,6 +83,20 @@ public class MainController {
 	  }
 	  
 	  
+	  
+	  
+	  
+	  
+	  @RequestMapping("/sitemap/{sitemapFile}")
+	   public void downloadPDFResource( HttpServletRequest request, HttpServletResponse response,  @PathVariable("sitemapFile") String fileName) throws IOException 
+	    {
+	      
+		// System.out.println(sitemapDirectory + " " + fileName);
+		 response.setContentType("application/xml"); 
+		 InputStream inputStream = new BufferedInputStream(new FileInputStream(new File(sitemapDirectory, fileName+".xml")));
+		 FileCopyUtils.copy(inputStream, response.getOutputStream());
+		  
+	   }
 	  
 	  /**
 	   * Index main page.

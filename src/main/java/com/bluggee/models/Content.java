@@ -1,6 +1,8 @@
 package com.bluggee.models;
 
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -48,6 +50,10 @@ public class Content {
     
     @Field
   	private String formattedTitle;
+    
+    
+    @Field
+  	private Date savedDate;
     
     @ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="source_id")
@@ -138,7 +144,16 @@ public class Content {
 		this.sitemapCompleted = sitemapCompleted;
 	}
 
+	public Date getSavedDate() {
+		return savedDate;
+	}
 
+	public void setSavedDate(Date savedDate) {
+		this.savedDate = savedDate;
+	}
+
+
+	
 	
 	
 	

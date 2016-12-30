@@ -56,6 +56,10 @@ public class MainController {
 	 @Value("${sitemapDirectory}")
 	 String sitemapDirectory;
 	 
+	 
+	 @Value("${rssDirectory}")
+	 String rssDirectory;
+	 
 	  /**
 	   * Index main page.
 	   */
@@ -91,8 +95,7 @@ public class MainController {
 	  
 	  
 	  @RequestMapping("/sitemap/{sitemapFile}")
-	   public void downloadPDFResource( HttpServletRequest request, HttpServletResponse response,  @PathVariable("sitemapFile") String fileName) throws IOException 
-	    {
+	   public void downloadSitemap( HttpServletRequest request, HttpServletResponse response,  @PathVariable("sitemapFile") String fileName) throws IOException {
 	      
 		// System.out.println(sitemapDirectory + " " + fileName);
 		 response.setContentType("application/xml"); 
@@ -100,6 +103,17 @@ public class MainController {
 		 FileCopyUtils.copy(inputStream, response.getOutputStream());
 		  
 	   }
+	  
+	  
+	  
+	  @RequestMapping("/rss")
+	   public void downloadRss( HttpServletRequest request, HttpServletResponse response) throws IOException {
+	     response.setContentType("application/rss+xml"); 
+		 InputStream inputStream = new BufferedInputStream(new FileInputStream(new File(rssDirectory, "rss.rss")));
+		 FileCopyUtils.copy(inputStream, response.getOutputStream());
+	    }
+	  
+	  
 	  
 	  /**
 	   * Index main page.

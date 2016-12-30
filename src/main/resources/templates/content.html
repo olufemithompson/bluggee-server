@@ -13,6 +13,11 @@
 <link rel="stylesheet" href="/how2.css" media="screen" />
 <link rel="stylesheet" href="css/material-icons.css" />
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+
+<meta property="og:description" th:attr="content=${post.description}"  />
+<meta property="og:title" th:attr="content=${post.title}"  />
+<meta property="og:image" th:attr="content=${post.image}"  />
+
 </head>
 <body>
 	<div th:replace="fragments/content_header :: header">...</div>
@@ -31,7 +36,7 @@
 								<div class="pin content_main">
 									<h2  class="content_title"><span th:text="${post.title}" /></h2>
 									<div  class="content_image">
-										 <img th:src="${post.image}" />
+										 <img th:src="${post.image}" th:attr="alt=${post.title}"/>
 									</div>
 									<div class="content_body">
 										<p><span th:text="${post.description}" /></p>
@@ -62,13 +67,15 @@
 		
 		<br />
 		
-		<div>
-	    	<script data-cfasync="false" type="text/javascript" src="http://www.adnetworkperformance.com/a/display.php?r=1480213"></script>
-	    </div>
+		<div  class="col-sm-12">
+	    	<center>
+	    		<script data-cfasync="false" type="text/javascript" src="http://www.adnetworkperformance.com/a/display.php?r=1480213"></script>
+	    	</center>	    
+	     </div>
 	    
 	    <br />
 		
-		<div>
+		<div  class="col-sm-12">
 		
 			 <p>
 				<script type='text/javascript'>

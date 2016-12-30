@@ -83,7 +83,10 @@ public class MainController {
 	  }
 	  
 	  
-	  
+	  @RequestMapping("/privacy")
+	  public String privacy(Model model) {
+		  return "privacy";
+	  }
 	  
 	  
 	  
@@ -103,7 +106,6 @@ public class MainController {
 	   */
 	  @RequestMapping("/post/{uniqueId}/{title}")
 	  public String showpost(@PathVariable("uniqueId")String uniqueId, @PathVariable("title")String title,Model model) {
-		  System.out.println(uniqueId);
 		  model.addAttribute("post", repository.findByUniqueId(uniqueId));
 		  return "content";
 	  }

@@ -14,10 +14,10 @@ public interface ContentRepository extends CrudRepository<Content, Long> {
 	
 	Content findByUniqueId(String uniqueId);
 	
-	@Query(value = "select o from Content o order by o.id")
+	@Query(value = "select o from Content o order by o.id DESC")
     List<Content> list(Pageable pageable);
 	
 	
-	@Query(value = "select o from Content o where o.source.id in :ids order by o.id")
+	@Query(value = "select o from Content o where o.source.id in :ids order by o.id DESC")
     List<Content> list(Pageable pageable, @Param("ids")  List<Long> ids);
 }

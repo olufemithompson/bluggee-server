@@ -30,7 +30,7 @@
 <div id="wrapper">
 	<div id="columns">
 	   <div th:each="post : ${posts}" class="pin">
-			<h6><a th:href="${'/post/'+post.uniqueId+'/'+post.title}" target="blank"><span th:text="${post.title}" /></a></h6>
+			<h6><a th:href="${post.originalUrl}" target="blank"><span th:text="${post.title}" /></a></h6>
 			<div class="pn_image_div"><a th:href="${post.originalUrl}" target="blank"><img class="pn_image" th:src="${post.image}" /></a></div>
 			
 			<p>

@@ -94,12 +94,10 @@ public class MainController {
 	  
 	  
 	  
-	  @RequestMapping("/sitemap/{sitemapFile}")
+	  @RequestMapping("/sitemap{sitemapFile}")
 	   public void downloadSitemap( HttpServletRequest request, HttpServletResponse response,  @PathVariable("sitemapFile") String fileName) throws IOException {
-	      
-		// System.out.println(sitemapDirectory + " " + fileName);
 		 response.setContentType("application/xml"); 
-		 InputStream inputStream = new BufferedInputStream(new FileInputStream(new File(sitemapDirectory, fileName+".xml")));
+		 InputStream inputStream = new BufferedInputStream(new FileInputStream(new File(sitemapDirectory, "sitemap"+fileName+".xml")));
 		 FileCopyUtils.copy(inputStream, response.getOutputStream());
 		  
 	   }

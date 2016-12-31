@@ -75,12 +75,12 @@ public class MainController {
 			  page = 0;
 		  }
 		  PageRequest pageable = new PageRequest(page*20,20);
-		  List<Long> ids = Util.returnIdsFromString(searchItem);
-		  if(ids.size() > 0){
-			  model.addAttribute("posts", repository.list(pageable, ids));
-		  }else{
+//		  List<Long> ids = Util.returnIdsFromString(searchItem);
+//		  if(ids.size() > 0){
+//			  model.addAttribute("posts", repository.list(pageable, ids));
+//		  }else{
 			  model.addAttribute("posts", repository.list(pageable));
-		  }
+//		  }
 		  model.addAttribute("categories", bgrepository.findAll());
 		  model.addAttribute("sources", srepository.findAll());
 		  return "index";

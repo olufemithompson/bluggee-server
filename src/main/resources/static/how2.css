@@ -192,10 +192,13 @@ body {
     display: block;
 }
 
+.rh-bnr-wrp_190212_346945_4{
+	top:123px !important;
+}
 
 
 #wrapper {
-	width: 90%;
+	width: 80%;
 	margin: 50px auto;
 }
 

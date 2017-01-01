@@ -12,6 +12,20 @@ body {
 
 }
 
+
+@media screen and (min-width: 601px) and (max-width: 1500px) {
+ #top-adcash-ads { display: block; }   /* hide it elsewhere */
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+  #top-adcash-ads { display: none; }  /* show it on small screens */
+}
+
+.content_page{
+	padding-top:44px; 
+}
+
 .home_desc{
 	padding: 25px;
     color: white;
@@ -198,7 +212,7 @@ body {
 
 
 #wrapper {
-	width: 80%;
+	width: 90%;
 	margin: 50px auto;
 }
 

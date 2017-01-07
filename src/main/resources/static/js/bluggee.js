@@ -1,5 +1,5 @@
 var isLoading=false
-var page = 0;
+var page = 1;
 var stillMore=true;
 
 var markup = $('#pin_template').html();
@@ -26,11 +26,7 @@ $(document).ready(function() {
 	win.on('scroll',function() {
 		if(stillMore){
 		// End of the document reached?
-			console.log("scroll top " + win.scrollTop())
-			console.log("doc height " +  $(document).height())
-			console.log("win height " + win.height())
-			if ( win.scrollTop() >= $(document).height() - win.height()) {
-				console.log("has reached last page");
+			if ( win.scrollTop() >= $(document).height() - (win.height()+50)) {
 				doLoad(true);
 			}
 		}
@@ -56,12 +52,12 @@ function setLoadingViews(fromScrolling, isLoading){
 
 
 function doLoad(fromScrolling){
-	
+	var seconds = new Date().getTime();
 	if(!isLoading){
 		isLoading=true;
 		setLoadingViews(fromScrolling, isLoading);
 		$.ajax({
-			url: 'api/list?page='+page,
+			url: 'api/list?page='+page+"&time="+seconds,
 			dataType: 'json',
 			success: function(data) {
 				isLoading=false;

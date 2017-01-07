@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bluggee.models.Ads;
 import com.bluggee.models.SearchTerm;
+import com.bluggee.repository.AdsRepository;
 import com.bluggee.repository.BlogCategoryRepository;
 import com.bluggee.repository.BlogSourceRepository;
 import com.bluggee.repository.ContentRepository;
@@ -47,6 +50,10 @@ public class MainController {
 	 
 	 @Autowired
 	 BlogSourceRepository srepository;
+	 
+	 
+	 @Autowired
+	 AdsRepository adsRepository;
 	 
 	 
 	 @Autowired
@@ -83,6 +90,15 @@ public class MainController {
 		  }
 		  model.addAttribute("categories", bgrepository.findAll());
 		  model.addAttribute("sources", srepository.findAll());
+		  
+		  long count = adsRepository.countAds();
+		  if(count > 0){
+			  int index = new Random().nextInt((int)count);
+			  
+			  PageRequest apageable = new PageRequest(index,1);
+			  Ads ad = adsRepository.random(apageable).get(0);
+			  model.addAttribute("ad", ad);
+		  }
 		  return "index";
 	  }
 	  

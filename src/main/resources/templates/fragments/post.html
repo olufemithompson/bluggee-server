@@ -1,6 +1,15 @@
 <div th:fragment="post">
 <div id="wrapper">
-	<div id="columns">
+
+
+		
+	<div class="ads_content">
+		<span><i class="material-icons">monetization_on</i></span>
+		<center th:utext="${ad.content}" />
+	</div>
+	
+	
+	<div class="columns">
 	   <div th:each="post : ${posts}" class="pin">
 			<h6><a th:href="${post.url}" target="blank"><span th:text="${post.title}" /></a></h6>
 			<div class="pn_image_div"><a th:href="${post.url}" target="blank"><img class="pn_image" th:src="${post.image}" /></a></div>
@@ -21,9 +30,20 @@
 		</div>
 	
 	</div>
+	
+
+	
 </div>
 
+
+
+
+
+
+
 <div id="pin_template" style="display:none;">
+
+
 <div class="pin">
 			<h6><a target="blank" href="${url}"><span>${title}</span></a></h6>
 			<div class="pn_image_div"><a href="${url}" target="blank"><img class="pn_image" src="${image}"/></a></div>
@@ -44,4 +64,18 @@
 </div>
 
 
+<div id="ad_template" style="display:none;">
+<div class="ads_content">
+		<span><i class="material-icons">monetization_on</i></span>
+		<center>{{html content}}</center>
+	</div>
+</div>
+
+
+<div id="ads_template" style="display:none;">
+<div class="ads_content">
+		<span><i class="material-icons">monetization_on</i></span>
+		<center><script type="text/javascript" async="${async}" data-cfasync="${dataCfasync}"/></center>
+	</div>
+</div>
 </div>

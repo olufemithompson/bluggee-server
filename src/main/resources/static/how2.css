@@ -31,6 +31,7 @@ body {
     color: white;
     font-size: 16px;
     background: #1B3C58;
+    margin-top: 11px;
 }
 #content_item{
 	width: 100%;
@@ -216,7 +217,7 @@ body {
 	margin: 50px auto;
 }
 
-#columns {
+.columns {
 	-webkit-column-count: 3;
 	-webkit-column-gap: 10px;
 	-webkit-column-fill: auto;
@@ -283,7 +284,7 @@ body {
 
 
 @media (max-width: 660px) {
-	#columns {
+	.columns {
 		-webkit-column-count: 2;
 		-moz-column-count: 2;
 		column-count: 2;
@@ -291,7 +292,7 @@ body {
 }
 
 @media (max-width: 460px) {
-	#columns {
+	.columns {
 		-webkit-column-count: 1;
 		-moz-column-count: 1;
 		column-count: 1;
@@ -300,7 +301,7 @@ body {
 
 
 @media (min-width: 960px) {
-	#columns {
+	.columns {
 		-webkit-column-count: 4;
 		-moz-column-count: 4;
 		column-count: 4;
@@ -308,18 +309,41 @@ body {
 }
 
 @media (min-width: 1100px) {
-	#columns {
+	.columns {
 		-webkit-column-count: 5;
 		-moz-column-count: 5;
 		column-count: 5;
 	}
 }
-
-#columns:hover .pin:not(:hover) {
+/**
+.columns:hover .pin:not(:hover) {
 	opacity: 0.4;
 }
+**/
 
 
+.ads_content{
+	width: 100%;
+    min-height: 50px;
+    background: #2E506D;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ads_content > span{
+	position: absolute;
+    color: #57686F;
+    margin-left: 3px;
+    margin-top: 2px;
+	
+}
+
+.ads_content > center{
+	overflow-x: hidden;
+    margin: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 .menu_drop_down{
 	background: white !important;
@@ -464,8 +488,9 @@ body {
     width: 100%;
     z-index: 1000;
     position: fixed;
-    background: #547A9A !important;
+    background: #162633 !important;
     opacity:0.9;
+    
 }
 a{
 	cursor:pointer !important;

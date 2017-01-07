@@ -20,4 +20,7 @@ public interface ContentRepository extends CrudRepository<Content, Long> {
 	
 	@Query(value = "select o from Content o where o.source.id in :ids  group by o.title order by o.id DESC")
     List<Content> list(Pageable pageable, @Param("ids")  List<Long> ids);
+	
+	
+	
 }

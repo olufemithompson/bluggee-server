@@ -35,7 +35,7 @@ $(document).ready(function() {
 			//console.log(win.height());
 			//console.log($(document).height());
 			
-			if ( win.scrollTop() >= $(document).height() - (win.height())) {
+			if ( win.scrollTop() >= $(document).height() - (win.height()+50)) {
 				doLoad(true);
 			}
 		}
@@ -123,24 +123,24 @@ function doLoad(fromScrolling){
 				div.appendTo( "#wrapper" );
 				
 				
-				var adiv = $('<div />')
-				adiv.attr('class', 'ads_content');
-				adiv.attr('id', seconds);
-				
-				$.tmpl( "adTemplate", data.ad).appendTo(adiv);
-				adiv.appendTo( "#wrapper" );
-				
-				
-				 
-				setTimeout(function() { 
-					 	$('#'+seconds+" script").each(function (index, element) { 
-					 		element.id = seconds+"scr";
-					 		$('#'+seconds+"scr").load(data.ad.src );
-					})
-					
-				 
-				 
-				 }, 20000);
+//				var adiv = $('<div />')
+//				adiv.attr('class', 'ads_content');
+//				adiv.attr('id', seconds);
+//				
+//				$.tmpl( "adTemplate", data.ad).appendTo(adiv);
+//				adiv.appendTo( "#wrapper" );
+//				
+//				
+//				 
+//				setTimeout(function() { 
+//					 	$('#'+seconds+" script").each(function (index, element) { 
+//					 		element.id = seconds+"scr";
+//					 		$('#'+seconds+"scr").load(data.ad.src );
+//					})
+//					
+//				 
+//				 
+//				 }, 20000);
 				
 				
 //				$.tmpl( "adTemplate", data.ad).appendTo(adiv);

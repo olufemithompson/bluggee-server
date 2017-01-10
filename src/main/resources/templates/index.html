@@ -47,60 +47,57 @@
 
 	<div class="content_page">
 		<div class="page-content" id="banner">
-
-
-			<div class="row">
-
-
-
 				<div>
 					<p class="home_desc">Popular blog Streams all in one place.
 						View contents from various blogs and on different topics.
 						entertainment, technology, music, arts, news e.t.c... Stay up to
-						date!</p>
+						date!
+					</p>
 				</div>
-
-				<!--div>
-					<center>
-						<script data-cfasync='false' type='text/javascript'
-							src='//p190212.clksite.com/adServe/banners?tid=190212_346945_7'></script>
-					</center>
-				</div>
-
-
+				
 				<div>
-					<script async="async" type="text/javascript"
-						src="//go.mobisla.com/notice.php?p=961560&amp;interactive=1&amp;pushup=1"></script>
-				</div-->
-				
-				
-
-
-
-				<!--div id="top-adcash-ads">
-
-					<div>
-						<center>
-							<script data-cfasync="false" type="text/javascript"
-								src="http://www.adnetworkperformance.com/a/display.php?r=1481399"></script>
-						</center>
+					<div id="one">
+						
+						<div th:replace="fragments/post :: post">...</div>
+						
+						
+						
+						<div class="ads_cas">
+							<div>
+								<script type="text/javascript" src="//ubercpm.com/show.php?z=26&amp;pl=62946&amp;j=1"></script>
+							</div>
+							
+							
+							<div>
+								<script type="text/javascript" src="//ubercpm.com/show.php?z=26&amp;pl=62598&amp;j=1"></script>
+							</div>
+						</div>
+						
 					</div>
-				</div-->
-
-
-				<div>
-					<div th:replace="fragments/post :: post">...</div>
+				
+					<div id="two">
+						<div class="elong_ads">
+							<center>
+								<script data-cfasync='false' type='text/javascript' src='//p190212.clksite.com/adServe/banners?tid=190212_346945_10'></script>
+							</center>
+						</div>
+						
+						<div class="elong_ads">
+							<center>
+								<script data-cfasync='false' type='text/javascript' src='//p190212.clksite.com/adServe/banners?tid=190212_346945_11'></script>
+							</center>
+						</div>
+					</div>
+					
 				</div>
-			</div>
-
-
-
-
+				
+			
+			
+			
 		</div>
 		<div id="loading" style="display: none;">
 			<img src="/img/ajax-loader.gif" />
 		</div>
-		<!--script data-cfasync="false" type="text/javascript" src="//p190212.clksite.com/adServe/banners?tid=190212_346945_0&amp;type=footer&amp;size=728x90" /-->
 	</div>
 
 	<div th:replace="fragments/footer :: footer">...</div>
@@ -157,37 +154,7 @@
 
 	
 	
-	<div id="top-adcash-ads">
 	
-		
-	
-		<!--div>
-			<center th:utext="${ad.content}" />
-		</div>
-		<div>
-			<center>
-				<script data-cfasync="false" type="text/javascript"
-					src="http://www.adnetworkperformance.com/a/display.php?r=1480213"></script>
-			</center>
-		</div-->
-		
-		<div>
-			<center>
-				<script type="text/javascript" src="//ubercpm.com/show.php?z=26&amp;pl=62946&amp;j=1"></script>
-			</center>
-		</div>
-		
-		
-		<div>
-			<center>
-				<script type="text/javascript" src="//ubercpm.com/show.php?z=26&amp;pl=62598&amp;j=1"></script>
-			</center>
-		</div>
-	</div>
-	
-
-
-
 	<script src="/js/jquery.tmpl.js" />
 	<script src="/js/bluggee.js" />
 </body>

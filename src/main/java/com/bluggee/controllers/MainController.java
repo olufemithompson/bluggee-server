@@ -134,7 +134,8 @@ public class MainController {
 	   */
 	  @RequestMapping("/post/{uniqueId}/{title}")
 	  public String showpost(@PathVariable("uniqueId")String uniqueId, @PathVariable("title")String title,Model model) {
-		  model.addAttribute("post", repository.findByUniqueId(uniqueId));
+		  PageRequest apageable = new PageRequest(0,1);
+		  model.addAttribute("post", repository.findByUniqueId(apageable,uniqueId).get(0));
 		  return "content";
 	  }
 	  

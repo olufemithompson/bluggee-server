@@ -43,15 +43,15 @@ $(document).ready(function() {
 			//console.log(win.scrollTop());
 			//console.log(win.height());
 			//console.log($(document).height());
-			if(win.scrollTop() >= ($('#wrapper').height() - ($('#wrapper').position().top  + 200 )     )) {
-//				console.log("win top" +win.scrollTop());
-//				console.log("div top" + $('#wrapper').height());
-//				console.log("div top" +$('#wrapper').position().top);
-				doLoad(true);
-		    }
-//			if ( win.scrollTop() >= $(document).height() - (win.height()+50)) {
+//			if(win.scrollTop() >= ($('#wrapper').height() - ($('#wrapper').position().top  + 200 )     )) {
+////				console.log("win top" +win.scrollTop());
+////				console.log("div top" + $('#wrapper').height());
+////				console.log("div top" +$('#wrapper').position().top);
 //				doLoad(true);
-//			}
+//		    }
+			if ( win.scrollTop() >= $(document).height() - (win.height()+50)) {
+				doLoad(true);
+			}
 		}
 	});
 });

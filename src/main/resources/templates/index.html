@@ -46,14 +46,15 @@
 	<div th:replace="fragments/header :: header">...</div>
 
 	<div class="content_page">
-		<div class="page-content" id="banner">
-				<div>
-					<p class="home_desc">Popular blog Streams all in one place.
+		<div class="home_desc">
+					<p>Popular blog Streams all in one place.
 						View contents from various blogs and on different topics.
 						entertainment, technology, music, arts, news e.t.c... Stay up to
 						date!
 					</p>
-				</div>
+		</div>
+		<div class="page-content" id="banner">
+				
 				
 				<div>
 					<!--div id="one"-->
@@ -88,6 +89,11 @@
 		</div>
 		<div id="loading" style="display: none;">
 			<img src="/img/ajax-loader.gif" />
+		</div>
+		
+		
+		<div id="loading_big" style="display: none;">
+			<img src="/img/loading.svg" />
 		</div>
 		
 		<div class="ads_cas">
@@ -163,6 +169,16 @@
 	
 	<script src="/js/jquery.tmpl.js" />
 	<script src="/js/bluggee.js" />
+	
+	
+	<script type='text/javascript'>
+	(function(){
+	  var spoutjs=document.createElement('script'),firstjs=document.getElementsByTagName('script')[0];
+	  spoutjs.async=1;
+	  spoutjs.src='//cdn.spoutable.com/fe344da6-158d-4703-8545-026b3e66639a/spoutable.js';
+	  firstjs.parentNode.insertBefore(spoutjs,firstjs)
+	})();
+	</script>
 </body>
 
 

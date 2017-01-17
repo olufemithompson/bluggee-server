@@ -8,8 +8,7 @@
 <link rel="stylesheet"
 	href="/material-design/css/bootstrap-material-design.css"
 	media="screen" />
-<link rel="stylesheet" href="/material-design/css/material-icons.css"
-	media="screen" />
+<link rel="stylesheet" href="/material-design/css/material-icons.css" media="screen" />
 <link rel="stylesheet" href="/how2.css" media="screen" />
 <link rel="stylesheet" href="css/material-icons.css" />
 <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
@@ -38,31 +37,41 @@
 	ga('send', 'pageview');
 </script>
 </head>
-<body style="background: transparent;">
-	<script src="//go.mobtrks.com/notice.php?p=976543&amp;interstitial=1"></script>
+<body>
 	
 	<div th:replace="fragments/content_header :: header">...</div>
 
-	<!--div>
-		<script async="async" type="text/javascript"
-			src="//go.mobisla.com/notice.php?p=961572&amp;interactive=1&amp;pushup=1"></script>
-	</div-->
-	
-	<!--div>
-	<script type="text/javascript" src="//ubercpm.com/show.php?z=27&amp;pl=63211&amp;j=1"></script>
-	</div-->
-	
-	<div>
-		<object id="content_item" type="text/html"
-			th:attr="data=${post.originalUrl}"></object>
-	</div>
 
 
-
-	<div id="top-adcash-ads">
-
+	<div id="loading_content">
+		<center>
+			<img src="/img/loading.svg" />
+			<p>Please wait loading page...</p>
+		</center>
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+		           
+			var url = [[${post.originalUrl}]];
 		
-		<div style="padding-top: 10px; border-top: 1px solid whitesmoke;">
+			
+			function goToPage(){
+				setTimeout(
+						function() {
+							window.location = url;	
+						}, 7000);
+			}
+		
+			
+			document.onload = goToPage();
+			
+		
+		/*]]>*/
+		</script>
+	</div>
+	
+	
+	<div class="ads_cas">
+		<div>
 			<center>
 				<script type="text/javascript" src="//ubercpm.com/show.php?z=26&amp;pl=62946&amp;j=1"></script>
 			</center>
@@ -74,59 +83,7 @@
 			</center>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-	<!--div class="col-sm-12">
-		<center>
-			<script data-cfasync='false' type='text/javascript'
-				src='//p190212.clksite.com/adServe/banners?tid=190212_346945_5&amp;size=158x21'></script>
-		</center>
-	</div>
-
-	<div class="col-sm-12">
-		<center>
-			<script data-cfasync='false' type='text/javascript'
-				src='//p190212.clksite.com/adServe/banners?tid=190212_346945_6'></script>
-		</center>
-	</div-->
-
-
-
-
-
-
-
-
-	<!--div class="col-sm-12">
-
-		<center>
-			<script type='text/javascript'>
-				(function() {
-					var spoutjs = document.createElement('script'), firstjs = document
-							.getElementsByTagName('script')[0];
-					spoutjs.async = 1;
-					spoutjs.src = '//cdn.spoutable.com/fe344da6-158d-4703-8545-026b3e66639a/spoutable.js';
-					firstjs.parentNode.insertBefore(spoutjs, firstjs)
-				})();
-			</script>
-
-		</center>
-
-	</div-->
-
-
-	<!--script data-cfasync='false' type='text/javascript' src='//p190212.clksite.com/adServe/banners?tid=190212_346945_3&amp;type=slider&amp;side=right&amp;size=120x600&amp;position=center'></script-->
-	<!--script data-cfasync="false" type="text/javascript" src="//p190212.clksite.com/adServe/banners?tid=190212_346945_0&amp;type=footer&amp;size=728x90" /-->
-
-
+	<script async="async" type="text/javascript" src="//go.mobisla.com/notice.php?p=961560&amp;interactive=1&amp;pushup=1"></script>
 </body>
 <script src="/jquery/jquery.min.js" />
-<script src="/js/bluggee_content.js" />
-
 </html>

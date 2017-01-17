@@ -12,6 +12,19 @@ body {
 
 }
 
+#loading_content{
+	padding-top: 76px;
+}
+
+
+#loading_content > center > p{
+	color: whitesmoke;
+    font-size: 18px;
+    font-family: serif;
+}
+
+
+
 
 @media screen and (min-width: 601px) and (max-width: 1500px) {
  #top-adcash-ads { display: block; }   /* hide it elsewhere */
@@ -31,7 +44,7 @@ body {
     color: whitesmoke;
     font-size: 15px;
     background: #1B354C;
-    margin-top: 23px;
+    margin: 23px 0px;
     /* position: fixed; */
     width: 100%;
 }
@@ -40,7 +53,8 @@ body {
 #content_item{
 	width: 100%;
     margin-top: -20px;
-    min-height: 1500px;
+    position: fixed;
+    height: 100%;
 }
 
 .content_header {
@@ -92,6 +106,12 @@ body {
     padding-top: 15px;
 }
 
+
+#loading_big{
+	text-align: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
 
 .nmav-pills >li.active > a{
     color: black !important;
@@ -729,10 +749,24 @@ article{
 	text-align: center;
 }
  .nav-user li{
-	 width: 100px;
- }   
-       
+	  width: 40px;
+ } 
+ 
+.navbar .navbar-brand {
+    padding: 4px 15px !important;
+}
+
+.nav-pills > li > a:hover {
+    background: transparent !important;
+}  
+
+.nav-pills > li > a:active {
+    background: transparent !important;
+}      
     
+.nav-pills > li > a:focus {
+    background: transparent !important;
+}
 .nav-user{
 	margin-right:10px;	
 	margin-top: 10px;

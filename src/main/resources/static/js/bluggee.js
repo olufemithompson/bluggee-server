@@ -63,10 +63,14 @@ function setLoadingViews(fromScrolling, isLoading){
 	if(isLoading){
 		if(fromScrolling){
 			$('#loading').show();
+		}else{
+			$('#loading_big').show();
 		}
 	}else{
 		if(fromScrolling){
 			$('#loading').hide();
+		}else{
+			$('#loading_big').hide();
 		}
 		
 	}

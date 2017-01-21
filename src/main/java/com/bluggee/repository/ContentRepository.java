@@ -12,14 +12,15 @@ import com.bluggee.models.Content;
 
 public interface ContentRepository extends CrudRepository<Content, Long> {
 	
-	@Query(value = "select o from Content o  where o.uniqueId =:uniqueId")
+	@Query(value = "select o from Content o where o.uniqueId =:uniqueId")
 	List<Content> findByUniqueId(Pageable pageable, @Param("uniqueId") String uniqueId);
 	
-	@Query(value = "select o from Content o  group by o.title order  by o.id DESC")
+	
+	@Query(value = "select o from Content o group by o.title order  by o.id DESC")
     List<Content> list(Pageable pageable);
 	
 	
-	@Query(value = "select o from Content o where o.source.id in :ids  group by o.title order by o.id DESC")
+	@Query(value = "select o from Content o where o.source.id in :ids group by o.title order by o.id DESC")
     List<Content> list(Pageable pageable, @Param("ids")  List<Long> ids);
 	
 	

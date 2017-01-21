@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bluggee.models.Ads;
+import com.bluggee.models.BlogSource;
 import com.bluggee.models.Content;
 import com.bluggee.models.SearchTerm;
 import com.bluggee.repository.AdsRepository;
@@ -58,7 +59,6 @@ public class ApiController {
 	   * Index main page.
 	   */
 	  @RequestMapping("/api/list")
-	 
 	  public  @ResponseBody WebResponse index(
 			  @RequestParam(value="page", required=false)Integer page, 
 			  @CookieValue(value="search_item", required=false) String searchItem,  
@@ -90,62 +90,14 @@ public class ApiController {
 	  }
 	  
 	  
-//	  
-//	  /**
-//	   * Index main page.
-//	   */
-//	  @RequestMapping("/post/{uniqueId}/{title}")
-//	  public Content showpost(@PathVariable("uniqueId")String uniqueId, @PathVariable("title")String title,Model model) {
-//		  System.out.println(uniqueId);
-//		  model.addAttribute("post", repository.findByUniqueId(uniqueId));
-//		  return "content";
-//	  }
-//	  
-	  
-//	  /**
-//	   * Show search results for the given query.
-//	   *
-//	   * @param q The search query.
-//	   */
-//	  @RequestMapping("/search")
-//	  public String search(String q, Model model) {
-//		 
-//		if(q != null && !q.trim().isEmpty()){
-//			  SearchTerm term = new SearchTerm();
-//			  term.setTerm(q.trim());
-//			  searchRepository.save(term);
-//		}
-//		
-//		  
-//	    List<Post> searchResults = null;
-//	    try {
-//	      searchResults = search.search(q);
-//	    }
-//	    catch (Exception ex) {
-//	    	ex.printStackTrace();
-//	    }
-//	    model.addAttribute("posts", searchResults);
-//	    return "search";
-//	  }
-	  
-//	  
-//	  /**
-//	   * Show search results for the given query.
-//	   *
-//	   * @param q The search query.
-//	   */
-//	  @RequestMapping("/loadterm")
-//	  @ResponseBody
-//	  public List<SearchTerm> loadterms(String term, Model model) {
-//		List<SearchTerm> searchResults = null;
-//	    try {
-//	      searchResults = searchTermSearch.search(term);
-//	    }
-//	    catch (Exception ex) {
-//	    	ex.printStackTrace();
-//	    }
-//	    return searchResults;
-//	  }
+	  /**
+	   * Index main page.
+	   */
+	  @RequestMapping("/api/source")
+	  public  @ResponseBody Iterable<BlogSource> source(
+			   Model model) {
+		 return srepository.findAll();
+	  }
 	
 }
 

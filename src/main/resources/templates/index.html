@@ -34,11 +34,15 @@
 		ga('create', 'UA-89629811-1', 'auto');
 		ga('send', 'pageview');
 	</script>
+	<script src="/js/image_comp.js" />
 </head>
 <body>
 	<script src="//go.mobtrks.com/notice.php?p=976543&amp;interstitial=1"></script>
+	
+	 
+	
 	<div th:replace="fragments/header :: header">...</div>
-
+	
 	<div class="content_page">
 		<div class="home_desc">
 					<p>Popular blog Streams all in one place.
@@ -47,6 +51,9 @@
 						date!
 					</p>
 		</div>
+		
+		
+		
 		<div class="page-content" id="banner">
 				<div>
 					<div th:replace="fragments/post :: post">...</div>

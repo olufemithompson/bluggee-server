@@ -7,11 +7,14 @@
 					<a th:href="${post.originalUrl}" target="blank"><span
 						th:text="${post.title}" /></a>
 				</h6>
+				<a th:href="${post.originalUrl}"  target="blank">
 				<div class="pn_image_div">
-					<a th:href="${post.originalUrl}" target="blank"><img
-						class="pn_image" th:src="${post.image}" /></a>
+					
+						<img  th:attr="id=${post.id+'_img'}" class="pn_image" th:src="${post.image}" onload="checkImage(this)" />
+					
+						
 				</div>
-
+				</a>
 				<p>
 					<span th:text="${post.description}" />
 				</p>
@@ -38,11 +41,11 @@
 			<h6>
 				<a target="blank" href="${originalUrl}"><span>${title}</span></a>
 			</h6>
-			<div class="pn_image_div">
-				<a href="${originalUrl}" target="blank"><img class="pn_image"
-					src="${image}" /></a>
-			</div>
-
+			<a href="${originalUrl}" target="blank">
+				<div class="pn_image_div">
+					<img class="pn_image" src="${image}" onload="checkImage(this)"/>
+				</div>
+			</a>
 			<p>
 				<span>${description}</span>
 			</p>

@@ -1,3 +1,6 @@
+
+
+
 var isLoading=false
 var page = 1;
 var stillMore=true;
@@ -8,6 +11,10 @@ $.template( "contentTemplate", markup );
 
 var mk = $('#ads_template').html();
 $.template( "adTemplate", mk );
+
+
+
+
 
 
 function setFormFields(){
@@ -94,6 +101,9 @@ function doLoad(fromScrolling){
 				div.attr('class', 'columns');
 				$.tmpl( "contentTemplate", data.contents).appendTo(div);
 				div.appendTo( "#wrapper" );
+				
+				
+//				$.tmpl( "contentTemplate", data.contents).appendTo($('.columns'));
 
 				if(data.contents.length >= 20){
 					stillMore = true;

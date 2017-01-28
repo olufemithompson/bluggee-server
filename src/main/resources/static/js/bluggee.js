@@ -125,8 +125,12 @@ function doLoad(fromScrolling){
 	if(!isLoading){
 		isLoading=true;
 		setLoadingViews(fromScrolling, isLoading);
+		var durl = 'api/list?&time='+seconds;
+		if(page != null){
+			 durl = durl + '&page='+page;
+		}
 		$.ajax({
-			url: 'api/list?page='+page+"&time="+seconds,
+			url: durl,
 			dataType: 'json',
 			success: function(data) {
 				isLoading=false;
@@ -179,6 +183,7 @@ function filter(){
 		}
 	}
 	setCookie("search_item", cookie, 1000)
+	page = null;
 	doLoad(false);
 	$('#filterModal').modal('hide');
 }

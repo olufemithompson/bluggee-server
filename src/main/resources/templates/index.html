@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="/how2.css" media="screen" />
 	<link rel="stylesheet" href="/icofont/css/icofont.css" media="screen" />
 	<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.css" />
+	<script src="https://use.fontawesome.com/3a333b73bb.js"></script>
 	<link rel="alternate" href="http://bluggee.com" hreflang="en-us" />
 	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
 	
@@ -34,6 +35,27 @@
 		ga('create', 'UA-89629811-1', 'auto');
 		ga('send', 'pageview');
 	</script>
+	
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '555586027980853',
+	      xfbml      : true,
+	      version    : 'v2.8'
+	    });
+	    FB.AppEvents.logPageView();
+	  };
+	
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "//connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
+	
+	
 	<script src="/js/image_comp.js" />
 </head>
 <body>
@@ -44,13 +66,13 @@
 	<div th:replace="fragments/header :: header">...</div>
 	
 	<div class="content_page">
-		<div class="home_desc">
+		<!--div class="home_desc">
 					<p>Popular blog Streams all in one place.
 						View contents from various blogs and on different topics.
 						entertainment, technology, music, arts, news e.t.c... Stay up to
 						date!
 					</p>
-		</div>
+		</div-->
 		
 		
 		
@@ -89,7 +111,7 @@
 		<div class="modal-dialog mymodal_dialog">
 
 			<!-- Modal content-->
-			<div class="modal-content mymodal">
+			<div class="modal-content mymodal mainModal">
 
 				<div class="modal-body">
 					<ul class="nav nav-pills mnav-pills">

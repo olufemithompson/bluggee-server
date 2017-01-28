@@ -3,29 +3,24 @@
 
 		<div class="columns">
 			<div th:each="post : ${posts}" class="pin">
-				<h6>
-					<a th:href="${post.originalUrl}" target="blank"><span
-						th:text="${post.title}" /></a>
-				</h6>
 				<a th:href="${post.originalUrl}"  target="blank">
-				<div class="pn_image_div">
-					
+					<div class="pn_image_div">
 						<img  th:attr="id=${post.id+'_img'}" class="pn_image" th:src="${post.image}" onload="checkImage(this)" />
-					
-						
-				</div>
+						<center th:attr="id=${post.id+'_img_load'}" class="ld_image" ><img src="/img/img_loader.gif" /></center>
+					</div>
 				</a>
-				<p>
-					<span th:text="${post.description}" />
-				</p>
-
+				
+				<div class="pn_title_div">
+					<a th:href="${post.source.link}">
+						<span class="source_title"><span th:text="${post.source.name}" /></span>
+					</a>
+					<p class="content_title" th:text="${post.title}" />
+				</div>
+				
 				<div class="presets post_items">
-					<span class="presets_items"> <a
-						th:href="${post.source.link}"> <img class="source_img"
-							th:src="${'/img/source/'+post.source.image}" /> <span
-							class="source_title"><span th:text="${post.source.name}" /></span></a>
-					</span>
-
+					<a  th:attr="data-href=${post.originalUrl}, data-desc=${post.title}, data-title=${post.title}, data-image=${post.image}" class="fb btnShare">
+					<i class="fa fa-facebook fa-3x"></i>
+					</a>
 				</div>
 			</div>
 
@@ -38,24 +33,24 @@
 	<div id="pin_template" style="display: none;">
 
 		<div class="pin">
-			<h6>
-				<a target="blank" href="${originalUrl}"><span>${title}</span></a>
-			</h6>
 			<a href="${originalUrl}" target="blank">
 				<div class="pn_image_div">
-					<img class="pn_image" src="${image}" onload="checkImage(this)"/>
+					<img id="${id}_img" class="pn_image" src="${image}" onload="checkImage(this)"/>
+					<center id="${id}_img_load" class="ld_image" ><img src="/img/img_loader.gif" /></center>
 				</div>
 			</a>
-			<p>
-				<span>${description}</span>
-			</p>
-
+			<div class="pn_title_div">
+					<a href="${link}">
+						<span class="source_title"><span>${source.name}</span></span>
+					</a>
+					<p class="content_title">${title}</p>
+			
+			</div>
+			
 			<div class="presets post_items">
-				<span class="presets_items"> <a href="${source.link}"
-					target="blank"> <img class="source_img"
-						src="/img/source/${source.image}" /> <span class="source_title"><span>${source.name}</span></span>
+				<a   data-href="${originalUrl}" data-desc="${title}" data-title="${title}" data-image="${image}" class="fb btnShare">
+					<i class="fa fa-facebook fa-3x"></i>
 				</a>
-				</span>
 			</div>
 		</div>
 	</div>

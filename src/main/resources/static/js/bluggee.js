@@ -1,3 +1,8 @@
+$('.fb').click(function(){
+	elem = $(this);
+	postToFeed(elem.data('title'), elem.data('desc'), elem.data('href'), elem.data('image'));
+    return false;
+});
 
 
 

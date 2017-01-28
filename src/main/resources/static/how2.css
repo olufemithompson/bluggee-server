@@ -1,5 +1,5 @@
 body {
-	background: #325E84;
+	background: #172F44;
 }
 
 .navbar-header{
@@ -10,6 +10,11 @@ body {
 	padding-left: 20px;
 	padding-right: 20px;
 
+}
+
+.pn_title_div{
+	height:130px;
+	width:100%;
 }
 
 #loading_content{
@@ -23,8 +28,24 @@ body {
     font-family: serif;
 }
 
+.mainModal{
+	    position: absolute;
+    top: -28px;
+    right: 0px;
+}
 
-
+    
+    
+    
+    
+#nav_icon_title{
+	font-style: italic;
+    font-family: initial;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0px;
+    line-height: 70px;
+}
 
 @media screen and (min-width: 601px) and (max-width: 1500px) {
  #top-adcash-ads { display: block; }   /* hide it elsewhere */
@@ -36,7 +57,7 @@ body {
 }
 
 .content_page{
-	padding-top:44px; 
+	padding-top:60px; 
 }
 
 .home_desc{
@@ -312,8 +333,9 @@ body {
 
 
 .ld_image {
-	width: 200px;
-	height: 200px;
+	margin-left: auto;
+    margin-right: auto;
+    padding-top: 90px;
 }
 
 .pn_image_div{
@@ -327,12 +349,12 @@ body {
 }
 
 .pin p {
-	font: 12px/18px Arial, sans-serif;
-	color: #333;
-	padding-bottom: 15px;
-	padding-right: 15px;
-	padding-left: 	15px;
-	margin: 0;
+	font: 13px/18px Arial, sans-serif;
+    color: #61646B;
+    padding-bottom: 3px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0;
 	
 }
 
@@ -341,6 +363,7 @@ body {
 	padding-right: 15px;
 	padding-left: 15px;
 	font-weight:bold;
+	height: 100px;
 }
 
 .pin h6>a{
@@ -564,13 +587,13 @@ body {
 }
 
 .header{
-    width: 100%;
+   width: 100%;
     z-index: 1000;
     position: fixed;
-    background: #162633 !important;
-    opacity:0.9;
-    border-bottom: 3px solid #0D1821;
-    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    background: #172F44 !important;
+    opacity: 0.9;
+    /* border-bottom: 3px solid #0D1821; */
+    /* box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4); */
 }
 a{
 	cursor:pointer !important;
@@ -593,7 +616,14 @@ a:hover{
 	text-decoration:none;	
 }
 .source_title{
-	color: #FDFDFD;
+	    color: #172F44;
+    padding-left: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content_title{
+	
 }
 
 .page-content{
@@ -740,8 +770,17 @@ article{
 
 .presets{
 	padding-top: 10px;
-	background: #38678f;
-    border-top: 1px solid #F1F1F1;
+	
+}
+
+.btnShare{
+	padding-top: 10px;
+    padding-bottom: 5px;
+    border: 1px solid rgba(23, 47, 68, 0.47);
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgba(23, 47, 68, 0.47);
+    border-radius: 5px;
 }
 
 .presets_items{
@@ -767,7 +806,7 @@ article{
  } 
  
 .navbar .navbar-brand {
-    padding: 4px 15px !important;
+    padding: 0px 15px !important;
 }
 
 .nav-pills > li > a:hover {

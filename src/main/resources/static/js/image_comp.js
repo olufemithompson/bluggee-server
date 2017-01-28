@@ -3,14 +3,7 @@ function checkImage(img){
 		var height = img.naturalHeight;
 		var parentWidth = img.parentNode.offsetWidth - 3;
 		
-		
-		
-		
-		
-		
 		if(width > height){
-			
-			
 			var new_height = (parentWidth * height)/width;
 			
 			
@@ -34,13 +27,6 @@ function checkImage(img){
 				
 			}
 			
-			
-			
-			
-			
-			
-			
-			
 		
 		}else{
 			var new_width = (197 * width)/height;
@@ -53,5 +39,6 @@ function checkImage(img){
 			
 		}
 		img.style.display="block";
+		document.getElementById(img.id+"_load").style.display="none";
 	    
 	}

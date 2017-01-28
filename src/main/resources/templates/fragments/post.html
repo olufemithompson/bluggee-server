@@ -18,9 +18,22 @@
 				</div>
 				
 				<div class="presets post_items">
-					<a  th:attr="data-href=${post.originalUrl}, data-desc=${post.title}, data-title=${post.title}, data-image=${post.image}" class="fb btnShare">
-					<i class="fa fa-facebook fa-3x"></i>
-					</a>
+					
+					<div class="list-group">
+					  <button  th:attr="data-href=${post.url}, data-desc=${post.title}, data-title=${post.title}, data-image=${post.image}" type="button" class="fb list-group-item">
+					    <i class="fa fa-facebook-square fa-4x"></i><span class="share_span">share on facebook</span>
+					  </button>
+					  
+					  <button  th:attr="data-href=${post.url}, data-desc=${post.title}, data-title=${post.title}, data-image=${post.image}" type="button" class="tw list-group-item">
+					    <i class="fa fa-twitter-square fa-4x"></i><span class="share_span">share on twitter</span>
+					  </button>
+					  
+					  <button  th:attr="data-href=${post.url}, data-desc=${post.title}, data-title=${post.title}, data-image=${post.image}" type="button" class="g list-group-item">
+					    <i class="fa fa-google-plus-square fa-4x"></i><span class="share_span">share on google+</span>
+					  </button>
+					</div>
+					
+					
 				</div>
 			</div>
 
@@ -48,9 +61,21 @@
 			</div>
 			
 			<div class="presets post_items">
-				<a   data-href="${originalUrl}" data-desc="${title}" data-title="${title}" data-image="${image}" class="fb btnShare">
-					<i class="fa fa-facebook fa-3x"></i>
-				</a>
+				
+				<div class="list-group">
+					  <button  data-href="${url}" data-desc="${title}" data-title="${title}" data-image="${image}" type="button" class="fb list-group-item">
+					    <i class="fa fa-facebook-square fa-4x"></i><span class="share_span">share on facebook</span>
+					  </button>
+					  
+					  <button  data-href="${url}" data-desc="${title}" data-title="${title}" data-image="${image}" type="button" class="tw list-group-item">
+					    <i class="fa fa-twitter-square fa-4x"></i><span class="share_span">share on twitter</span>
+					  </button>
+					  
+					  <button  data-href="${url}" data-desc="${title}" data-title="${title}" data-image="${image}" type="button" class="g list-group-item">
+					    <i class="fa fa-google-plus-square fa-4x"></i><span class="share_span">share on google+</span>
+					  </button>
+					</div>
+				
 			</div>
 		</div>
 	</div>

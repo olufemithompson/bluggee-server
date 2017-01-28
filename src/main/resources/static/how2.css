@@ -228,7 +228,12 @@ body {
 }
 
 
-
+.share_span{
+	font-size: 12px;
+    color: #738073;
+    padding: 10px;
+    font-weight: bold;
+}
 
 .dropdown {
     position: relative;
@@ -324,6 +329,8 @@ body {
 	-o-transition: all .2s ease;
 	transition: all .2s ease;
 	width: 99%;
+	
+    border-radius:5px;
 }
 
 .pn_image {
@@ -344,7 +351,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     background: #F9F9F9;
-    border-bottom: 1px solid #EFEFEF;
+    border: 2px solid #EFEFEF;
     margin-bottom: 15px;
 }
 
@@ -773,11 +780,16 @@ article{
 	
 }
 
+
+.list-group .list-group-item {
+    padding: 3px 16px !important;
+}
+
 .btnShare{
-	padding-top: 10px;
+	    padding-top: 10px;
     padding-bottom: 5px;
-    border: 1px solid rgba(23, 47, 68, 0.47);
-    padding-left: 10px;
+    /* border: 1px solid rgba(23, 47, 68, 0.47); */
+    /* padding-left: 10px; */
     padding-right: 10px;
     color: rgba(23, 47, 68, 0.47);
     border-radius: 5px;

@@ -5,6 +5,43 @@ $('.fb').click(function(){
 });
 
 
+$('.tw').click(function(event) {
+	elem = $(this);
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = "http://twitter.com/share?url="+elem.data('href')+"&text="+elem.data('title'),
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    
+    window.open(url, 'twitter', opts);
+ 
+    return false;
+  });
+
+
+$('.g').click(function(event) {
+	elem = $(this);
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = "https://plus.google.com/share?url="+elem.data('href'),
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    
+    window.open(url, 'google', opts);
+ 
+    return false;
+  });
+
 
 var isLoading=false
 var page = 1;

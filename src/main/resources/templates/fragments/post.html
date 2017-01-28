@@ -20,16 +20,20 @@
 				<div class="presets post_items">
 					
 					<div class="list-group">
-					  <button  th:attr="data-href=${post.url}, data-desc=${post.title}, data-title=${post.title}, data-image=${post.image}" type="button" onclick="shareFb(this)" class="fb list-group-item">
+					  <button  th:attr="data-href=${post.url}, data-desc=${post.description}, data-title=${post.title}, data-image=${post.image}" type="button" onclick="shareFb(this)" class="fb list-group-item">
 					    <i class="fa fa-facebook-square fa-4x"></i><span class="share_span">share on facebook</span>
 					  </button>
 					  
-					  <button  th:attr="data-href=${post.url}, data-desc=${post.title}, data-title=${post.title}, data-image=${post.image}" type="button" onclick="shareTw(this)" class="tw list-group-item">
+					  <button  th:attr="data-href=${post.url}, data-desc=${post.description}, data-title=${post.title}, data-image=${post.image}" type="button" onclick="shareTw(this)" class="tw list-group-item">
 					    <i class="fa fa-twitter-square fa-4x"></i><span class="share_span">share on twitter</span>
 					  </button>
 					  
-					  <button  th:attr="data-href=${post.url}, data-desc=${post.title}, data-title=${post.title}, data-image=${post.image}" type="button" class="g list-group-item"  onclick="shareG(this)">
+					  <button  th:attr="data-href=${post.url}, data-desc=${post.description}, data-title=${post.title}, data-image=${post.image}" type="button" class="g list-group-item"  onclick="shareG(this)">
 					    <i class="fa fa-google-plus-square fa-4x"></i><span class="share_span">share on google+</span>
+					  </button>
+					  
+					   <button  th:attr="data-href=${post.url}, data-desc=${post.description}, data-title=${post.title}, data-image=${post.image}" type="button" class="g list-group-item"  onclick="shareLi(this)">
+					    <i class="fa fa-linkedin-square fa-4x"></i><span class="share_span">share on linkedin</span>
 					  </button>
 					</div>
 					
@@ -63,16 +67,21 @@
 			<div class="presets post_items">
 				
 				<div class="list-group">
-					  <button  data-href="${url}" data-desc="${title}" data-title="${title}" data-image="${image}" type="button" class="fb list-group-item" onclick="shareFb(this)">
+					  <button  data-href="${url}" data-desc="${description}" data-title="${title}" data-image="${image}" type="button" class="fb list-group-item" onclick="shareFb(this)">
 					    <i class="fa fa-facebook-square fa-4x"></i><span class="share_span">share on facebook</span>
 					  </button>
 					  
-					  <button  data-href="${url}" data-desc="${title}" data-title="${title}" data-image="${image}" type="button" class="tw list-group-item" onclick="shareTw(this)">
+					  <button  data-href="${url}" data-desc="${description}" data-title="${title}" data-image="${image}" type="button" class="tw list-group-item" onclick="shareTw(this)">
 					    <i class="fa fa-twitter-square fa-4x"></i><span class="share_span">share on twitter</span>
 					  </button>
 					  
-					  <button  data-href="${url}" data-desc="${title}" data-title="${title}" data-image="${image}" type="button" class="g list-group-item" onclick="shareG(this)">
+					  <button  data-href="${url}" data-desc="${description}" data-title="${title}" data-image="${image}" type="button" class="g list-group-item" onclick="shareG(this)">
 					    <i class="fa fa-google-plus-square fa-4x"></i><span class="share_span">share on google+</span>
+					  </button>
+					  
+					  
+					   <button  data-href="${url}" data-desc="${description}" data-title="${title}" data-image="${image}" type="button" class="g list-group-item" onclick="shareLi(this)">
+					     <i class="fa fa-linkedin-square fa-4x"></i><span class="share_span">share on linkedin</span>
 					  </button>
 					</div>
 				

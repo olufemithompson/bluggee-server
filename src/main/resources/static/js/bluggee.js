@@ -20,6 +20,23 @@ function shareTw(item){
     window.open(url, 'twitter', opts);
 }
 
+
+function shareLi(item){
+	elem = $(item);
+    var width  = 575,
+        height = 400,
+        left   = ($(window).width()  - width)  / 2,
+        top    = ($(window).height() - height) / 2,
+        url    = "https://www.linkedin.com/shareArticle?mini=true&source=http://bluggee.com&url="+elem.data('href')+"&title="+elem.data('title')+"&summary="+elem.data('desc'),
+        opts   = 'status=1' +
+                 ',width='  + width  +
+                 ',height=' + height +
+                 ',top='    + top    +
+                 ',left='   + left;
+    
+    window.open(url, 'twitter', opts);
+}
+
 function shareG(item){
 	elem = $(item);
     var width  = 575,

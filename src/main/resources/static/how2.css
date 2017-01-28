@@ -57,7 +57,7 @@ body {
 }
 
 .content_page{
-	padding-top:60px; 
+	padding-top:70px; 
 }
 
 .home_desc{
@@ -229,10 +229,10 @@ body {
 
 
 .share_span{
-	font-size: 12px;
+	    font-size: 14px;
     color: #738073;
     padding: 10px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .dropdown {
@@ -782,7 +782,7 @@ article{
 
 
 .list-group .list-group-item {
-    padding: 3px 16px !important;
+   padding: 8px 16px !important;
 }
 
 .btnShare{

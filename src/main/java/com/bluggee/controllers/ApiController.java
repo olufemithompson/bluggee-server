@@ -60,23 +60,33 @@ public class ApiController {
 	   */
 	  @RequestMapping("/api/list")
 	  public  @ResponseBody WebResponse index(
-			  @RequestParam(value="page", required=false)Integer page, 
+			  @RequestParam(value="page", required=false)Long page, 
 			  @CookieValue(value="search_item", required=false) String searchItem,  
 			  Model model) {
-		  if(page == null){
-			  page = 0;
-		  }
-		  PageRequest pageable = new PageRequest(page,20);
+		  
+		  PageRequest pageable = new PageRequest(0,20);
 		  List<Long> ids = Util.returnIdsFromString(searchItem);
 		  
 		  WebResponse response  = new WebResponse();
 		  
+		  List<Content> posts = null;
 		  if(ids.size() > 0){
-			  response.setContents(repository.list(pageable, ids));
+			  if(page == null){
+				  posts  = repository.list(pageable, ids);
+				  
+			  }else{
+				  posts  = repository.list(pageable, ids, page);
+			  }
+			 
 		  }else{
-			  response.setContents(repository.list(pageable));
+			  if(page == null){
+				  posts  = repository.list(pageable);
+			  }else{
+				  posts  = repository.list(pageable, page);
+				  
+			  }
 		  }
-		  
+		  response.setContents(posts);
 		  long count = adsRepository.countAds();
 		  if(count > 0){
 			  int index = new Random().nextInt((int)count);

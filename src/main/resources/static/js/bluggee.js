@@ -1,12 +1,11 @@
-$('.fb').click(function(){
-	elem = $(this);
+function shareFb(item){
+	elem = $(item);
 	postToFeed(elem.data('title'), elem.data('desc'), elem.data('href'), elem.data('image'));
-    return false;
-});
+}
 
 
-$('.tw').click(function(event) {
-	elem = $(this);
+function shareTw(item){
+	elem = $(item);
     var width  = 575,
         height = 400,
         left   = ($(window).width()  - width)  / 2,
@@ -19,13 +18,10 @@ $('.tw').click(function(event) {
                  ',left='   + left;
     
     window.open(url, 'twitter', opts);
- 
-    return false;
-  });
+}
 
-
-$('.g').click(function(event) {
-	elem = $(this);
+function shareG(item){
+	elem = $(item);
     var width  = 575,
         height = 400,
         left   = ($(window).width()  - width)  / 2,
@@ -38,13 +34,10 @@ $('.g').click(function(event) {
                  ',left='   + left;
     
     window.open(url, 'google', opts);
- 
-    return false;
-  });
+}
 
 
-var isLoading=false
-var page = 1;
+var isLoading=false;
 var stillMore=true;
 
 var markup = $('#pin_template').html();
@@ -149,7 +142,7 @@ function doLoad(fromScrolling){
 
 				if(data.contents.length >= 20){
 					stillMore = true;
-					page+=1;
+					page = data.contents[data.contents.length-1].id;
 				}else{
 					stillMore=false;
 				}

@@ -61,7 +61,12 @@
 		  FB.ui(obj, callback);
 	  }
 	</script>
-	
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+		var page = [[${last}]];
+	    console.log(page);
+	/*]]>*/
+	</script>
 	
 	<script src="/js/image_comp.js" />
 </head>
@@ -89,7 +94,7 @@
 				</div>
 		</div>
 		<div id="loading" style="display: none;">
-			<img src="/img/ajax-loader.gif" />
+			<img src="/img/img_loader.gif" />
 		</div>
 		
 		

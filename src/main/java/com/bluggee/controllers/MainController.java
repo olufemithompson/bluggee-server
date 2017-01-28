@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bluggee.models.Ads;
+import com.bluggee.models.Content;
 import com.bluggee.models.SearchTerm;
 import com.bluggee.repository.AdsRepository;
 import com.bluggee.repository.BlogCategoryRepository;
@@ -73,21 +74,32 @@ public class MainController {
 	  @RequestMapping("/")
 	  public String index(
 			  
-			  @RequestParam(value="page", required=false)Integer page, 
+			  @RequestParam(value="page", required=false)Long page, 
 			  @CookieValue(value="search_item", required=false) String searchItem,  
 			  Model model,
 			  HttpServletRequest request) {
 		  
-		  if(page == null){
-			  page = 0;
-		  }
-		  PageRequest pageable = new PageRequest(page*20,20);
+		  PageRequest pageable = new PageRequest(0,20);
 		  List<Long> ids = Util.returnIdsFromString(searchItem);
+		  List<Content> posts = null;
 		  if(ids.size() > 0){
-			  model.addAttribute("posts", repository.list(pageable, ids));
+			  if(page == null){
+				  posts  = repository.list(pageable, ids);
+				  
+			  }else{
+				  posts  = repository.list(pageable, ids, page);
+			  }
+			 
 		  }else{
-			  model.addAttribute("posts", repository.list(pageable));
+			  if(page == null){
+				  posts  = repository.list(pageable);
+			  }else{
+				  posts  = repository.list(pageable, page);
+				  
+			  }
 		  }
+		  model.addAttribute("posts", posts);
+		  model.addAttribute("last", posts.get(posts.size()-1).getId());
 		  model.addAttribute("categories", bgrepository.findAll());
 		  model.addAttribute("sources", srepository.findAll());
 		  

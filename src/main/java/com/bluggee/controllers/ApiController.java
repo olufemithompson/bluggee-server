@@ -1,4 +1,5 @@
 package com.bluggee.controllers;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bluggee.models.Ads;
+import com.bluggee.models.BlogCategory;
 import com.bluggee.models.BlogSource;
 import com.bluggee.models.Content;
 import com.bluggee.models.SearchTerm;
@@ -27,6 +29,7 @@ import com.bluggee.repository.ContentRepository;
 import com.bluggee.repository.SearchTermRepository;
 import com.bluggee.search.SearchTermSearch;
 import com.bluggee.utils.Util;
+import com.bluggee.utils.reponse.CategoryResponse;
 import com.bluggee.utils.reponse.WebResponse;
 
 @Controller
@@ -61,7 +64,7 @@ public class ApiController {
 	  @RequestMapping("/api/list")
 	  public  @ResponseBody WebResponse index(
 			  @RequestParam(value="page", required=false)Long page, 
-			  @CookieValue(value="search_item", required=false) String searchItem,  
+			  @CookieValue(value="cat_item", required=false) String searchItem,  
 			  Model model) {
 		  
 		  PageRequest pageable = new PageRequest(0,20);
@@ -87,17 +90,41 @@ public class ApiController {
 			  }
 		  }
 		  response.setContents(posts);
-		  long count = adsRepository.countAds();
-		  if(count > 0){
-			  int index = new Random().nextInt((int)count);
-			  
-			  PageRequest apageable = new PageRequest(index,1);
-			  Ads ad = adsRepository.random(apageable).get(0);
-			  response.setAd(ad);
-		  }
+//		  long count = adsRepository.countAds();
+//		  if(count > 0){
+//			  int index = new Random().nextInt((int)count);
+//			  
+//			  PageRequest apageable = new PageRequest(index,1);
+//			  Ads ad = adsRepository.random(apageable).get(0);
+//			  response.setAd(ad);
+//		  }
 		  
 		  return response;
 	  }
+	  
+	  
+	  
+	  
+	  
+	  /**
+	   * list category page
+	   */
+	  @RequestMapping("/api/category")
+	  public  @ResponseBody List<CategoryResponse> category() {
+		  
+		  Iterable<BlogCategory> categories = bgrepository.findAll(); 
+		  List<CategoryResponse> responses = new ArrayList<CategoryResponse>();
+		  for(BlogCategory cat : categories){
+			  CategoryResponse resp = new CategoryResponse();
+			  resp.setCategory(cat);
+			  resp.setSources(srepository.listByCat(cat.getId()));
+			  responses.add(resp);
+			  
+		  }
+		  return responses;
+	  }
+	  
+	  
 	  
 	  
 	  /**

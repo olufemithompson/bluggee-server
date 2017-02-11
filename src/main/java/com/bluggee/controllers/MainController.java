@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bluggee.models.Ads;
+import com.bluggee.models.BlogCategory;
 import com.bluggee.models.Content;
 import com.bluggee.models.SearchTerm;
 import com.bluggee.repository.AdsRepository;
@@ -32,6 +34,7 @@ import com.bluggee.repository.ContentRepository;
 import com.bluggee.repository.SearchTermRepository;
 import com.bluggee.search.SearchTermSearch;
 import com.bluggee.utils.Util;
+import com.bluggee.utils.reponse.CategoryResponse;
 
 @Controller
 public class MainController {
@@ -75,7 +78,7 @@ public class MainController {
 	  public String index(
 			  
 			  @RequestParam(value="page", required=false)Long page, 
-			  @CookieValue(value="search_item", required=false) String searchItem,  
+			  @CookieValue(value="cat_item", required=false) String searchItem, 
 			  Model model,
 			  HttpServletRequest request) {
 		  
@@ -85,7 +88,6 @@ public class MainController {
 		  if(ids.size() > 0){
 			  if(page == null){
 				  posts  = repository.list(pageable, ids);
-				  
 			  }else{
 				  posts  = repository.list(pageable, ids, page);
 			  }
@@ -98,19 +100,29 @@ public class MainController {
 				  
 			  }
 		  }
-		  model.addAttribute("posts", posts);
-		  model.addAttribute("last", posts.get(posts.size()-1).getId());
-		  model.addAttribute("categories", bgrepository.findAll());
-		  model.addAttribute("sources", srepository.findAll());
 		  
-		  long count = adsRepository.countAds();
-		  if(count > 0){
-			  int index = new Random().nextInt((int)count);
+		  Iterable<BlogCategory> categories = bgrepository.findAll(); 
+		  List<CategoryResponse> responses = new ArrayList<CategoryResponse>();
+		  for(BlogCategory cat : categories){
+			  CategoryResponse resp = new CategoryResponse();
+			  resp.setCategory(cat);
+			  resp.setSources(srepository.listByCat(cat.getId()));
+			  responses.add(resp);
 			  
-			  PageRequest apageable = new PageRequest(index,1);
-			  Ads ad = adsRepository.random(apageable).get(0);
-			  model.addAttribute("ad", ad);
 		  }
+		  model.addAttribute("posts", posts);
+		  model.addAttribute("hasCat", (ids.size() > 0));
+		  model.addAttribute("last", posts.get(posts.size()-1).getId());
+		  model.addAttribute("categories", responses);
+		  
+//		  long count = adsRepository.countAds();
+//		  if(count > 0){
+//			  int index = new Random().nextInt((int)count);
+//			  
+//			  PageRequest apageable = new PageRequest(index,1);
+//			  Ads ad = adsRepository.random(apageable).get(0);
+//			  model.addAttribute("ad", ad);
+//		  }
 		  return "index";
 	  }
 	  

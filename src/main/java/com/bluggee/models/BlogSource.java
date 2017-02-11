@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Indexed
 public class BlogSource {
@@ -20,8 +22,7 @@ public class BlogSource {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-    
-    
+        
     @Field
 	private String name;
     
@@ -31,13 +32,16 @@ public class BlogSource {
     @Field
    	private String link;
     
-    
     @Field
    	private String description;
     
 
+    @ManyToOne(fetch=FetchType.LAZY)
+  	@JoinColumn(name="category_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+  	private BlogCategory category;
 	
-	
+    
 	public BlogSource() {
 		super();
 	}
@@ -100,6 +104,18 @@ public class BlogSource {
 
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+
+
+	public BlogCategory getCategory() {
+		return category;
+	}
+
+
+
+	public void setCategory(BlogCategory category) {
+		this.category = category;
 	}
 
 	

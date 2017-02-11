@@ -28,24 +28,91 @@ body {
     font-family: serif;
 }
 
-.mainModal{
-	    position: absolute;
-    top: -28px;
-    right: 0px;
-}
 
     
+.filterModalTitle{
+	    /* background: #2c3e50; */
+    color: white;
+    font-size: 20px;
+    margin-bottom: 25px;
     
+}
+.filterModalContent{
+    background: rgb(13, 28, 41) !important;
+    border-radius: 31px;
+    /* border: 1px solid #2F2D2D; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 30px 22px;
+    width: 87%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filterModalContent_title{
+	color:#BDBDBD
+}
+.cat_conts{
+	margin-bottom:25px;
+	
+}
+
+.filterModal{
+	width: 100%;
+    /* border: 3px solid black; */
+    padding: 100px 0px;
+    /* top: 64px; */
+    /* right: 0px; */
+    background: rgba(31, 50, 66, 0.94) !important;
+    height: 100%;
+    /* z-index: 1000; */
+    /* bottom: 0; */
+}
     
     
 #nav_icon_title{
-	font-style: italic;
+	    font-style: italic;
     font-family: initial;
     font-size: 15px;
-    position: absolute;
-    bottom: 0px;
-    line-height: 70px;
+    /* position: absolute; */
+    /* bottom: 0px; */
+    line-height: 60px;
 }
+
+ 
+   #filter_button{
+       padding: 17px;
+    background: rgb(13, 28, 41);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-weight: bold;
+   
+   }
+   
+   
+   #filter_button:hover{
+    	background:#161623;
+   }
+   
+   #filterb_div{
+   position: fixed;
+    bottom: 0px;
+    /* background: black; */
+    width: 100%;
+    padding-top: 21px;
+    text-align: center;
+    padding-bottom: 10px;
+   }
+
+
+#nav_icon_title > strong{
+	font-style: normal;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+  
 
 @media screen and (min-width: 601px) and (max-width: 1500px) {
  #top-adcash-ads { display: block; }   /* hide it elsewhere */
@@ -127,11 +194,24 @@ body {
     padding-top: 15px;
 }
 
+.showClass{
+	display:block;
+}
 
+.hideClass{
+	display:none;
+}
 #loading_big{
 	text-align: center;
     padding-bottom: 15px;
     padding-top: 15px;
+    position: fixed;
+    top: 64px;
+    right: 0px;
+    background: rgba(31, 50, 66, 0.94) !important;
+    height: 100%;
+    z-index: 1000;
+    width: 100%;
 }
 
 .nmav-pills >li.active > a{
@@ -224,7 +304,7 @@ body {
 
 
 .checkbox-custom:focus + .checkbox-custom-label, .radio-custom:focus + .radio-custom-label {
-  outline: 1px solid #ddd !important; /* focus style */
+  /* outline: 1px solid #ddd !important; /* focus style */
 }
 
 
@@ -345,12 +425,17 @@ body {
     padding-top: 90px;
 }
 
+
+.hr_m{
+	    margin-top: 10px;
+}
+
 .pn_image_div{
 	width: 100%;
     height: 200px;
     margin-left: auto;
     margin-right: auto;
-    background: #F9F9F9;
+    background: #EFEFEF;
     border: 2px solid #EFEFEF;
     margin-bottom: 15px;
 }
@@ -385,6 +470,10 @@ body {
 		-moz-column-count: 2;
 		column-count: 2;
 	}
+	
+	#filter_button{
+		font-size:13px;
+	}
 }
 
 @media (max-width: 460px) {
@@ -392,6 +481,10 @@ body {
 		-webkit-column-count: 1;
 		-moz-column-count: 1;
 		column-count: 1;
+	}
+	
+	#filter_button{
+		font-size:10px;
 	}
 }
 

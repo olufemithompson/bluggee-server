@@ -21,11 +21,13 @@ import com.bluggee.models.Ads;
 import com.bluggee.models.BlogCategory;
 import com.bluggee.models.BlogSource;
 import com.bluggee.models.Content;
+import com.bluggee.models.RegId;
 import com.bluggee.models.SearchTerm;
 import com.bluggee.repository.AdsRepository;
 import com.bluggee.repository.BlogCategoryRepository;
 import com.bluggee.repository.BlogSourceRepository;
 import com.bluggee.repository.ContentRepository;
+import com.bluggee.repository.RegIdRepository;
 import com.bluggee.repository.SearchTermRepository;
 import com.bluggee.search.SearchTermSearch;
 import com.bluggee.utils.Util;
@@ -57,6 +59,10 @@ public class ApiController {
 	 
 	 @Autowired
 	 AdsRepository adsRepository;
+	 
+	 
+	 @Autowired
+	 RegIdRepository regRepository;
 	 
 	  /**
 	   * Index main page.
@@ -104,8 +110,35 @@ public class ApiController {
 	  
 	  
 	  
+		
+		 
+		  /**
+		   * Index main page.
+		   */
+		  @RequestMapping("/api/latest")
+		  public  @ResponseBody WebResponse ontup(
+				  @RequestParam(value="page")Long page, 
+				  @CookieValue(value="cat_item", required=false) String searchItem,  
+				  Model model) {
+			  
+			  List<Long> ids = Util.returnIdsFromString(searchItem);
+			  WebResponse response  = new WebResponse();
+			  PageRequest pageable = new PageRequest(0,20);
+			  List<Content> posts = null;
+			  if(ids.size() > 0){
+				  posts  = repository.latest(pageable,ids, page);
+				 
+			  }else{
+				 posts  = repository.latest(pageable, page);
+			   }
+			  response.setContents(posts);
+			  return response;
+		  }
 	  
-	  
+		  
+		  
+		  
+		  
 	  /**
 	   * list category page
 	   */
@@ -124,6 +157,17 @@ public class ApiController {
 		  return responses;
 	  }
 	  
+
+	  @RequestMapping("/api/reg")
+	  public  @ResponseBody String  register( @RequestParam(value="reg", required=false)String reg ) {
+		  PageRequest pageable = new PageRequest(0,1);
+		  if(regRepository.findByUniqueId(pageable, reg).size() == 0){
+			  RegId regs = new RegId();
+			  regs.setReg(reg);
+			  regRepository.save(regs);
+		  }
+		  return "success";
+	  }
 	  
 	  
 	  

@@ -12,6 +12,19 @@ body {
 
 }
 
+#app_marketing{
+	background:#030304;
+	padding:20px;
+}
+
+#app_marketing > a > img{
+	    width: 300px;
+}
+
+#app_marketing > h3{
+	color:white;
+}
+
 .pn_title_div{
 	height:130px;
 	width:100%;

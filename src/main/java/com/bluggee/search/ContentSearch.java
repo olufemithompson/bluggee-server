@@ -34,7 +34,7 @@ public class ContentSearch {
 	   * 
 	   * @param text The query text.
 	   */
-	  public List<Content> search(String text) {
+	  public List<Content> search(String text, int page) {
 	    
 	    // get the full text entity manager
 	    FullTextEntityManager fullTextEntityManager =
@@ -60,7 +60,7 @@ public class ContentSearch {
 	  
 	    // execute search and return results (sorted by relevance as default)
 	    @SuppressWarnings("unchecked")
-	    List<Content> results = jpaQuery.setMaxResults(5).getResultList();
+	    List<Content> results = jpaQuery.setFirstResult(page).setMaxResults(20).getResultList();
 	    
 	    return results;
 	  } // method search

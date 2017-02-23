@@ -207,12 +207,13 @@ public class ApiController {
 //	   * @param q The search query.
 //	   */
 	  @RequestMapping("/search")
-	  public @ResponseBody  List<Content> search(String q) {
+	  public @ResponseBody  List<Content> search(@RequestParam(value="q", required=false) String q,
+			  @RequestParam(value="page", required=false) int page) {
 		
 		  
 	    List<Content> searchResults = null;
 	    try {
-	      searchResults = search.search(q);
+	      searchResults = search.search(q, page);
 	    }
 	    catch (Exception ex) {
 	    	ex.printStackTrace();

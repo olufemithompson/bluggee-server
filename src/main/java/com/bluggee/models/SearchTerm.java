@@ -14,7 +14,6 @@ import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 
 @Entity
-@Indexed
 public class SearchTerm {
 
     @Id
@@ -22,7 +21,6 @@ public class SearchTerm {
 	private long id;
     
     
-    @Field
 	private String term;
 
 

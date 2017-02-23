@@ -17,7 +17,8 @@ public interface RegIdRepository extends CrudRepository<RegId, Long> {
 	List<RegId> findByUniqueId(Pageable pageable, @Param("reg") String RegId);
 	
 	
-	
+	@Query(value = "select o from RegId o where o.deviceId =:deviceId")
+	List<RegId> findByDevice(Pageable pageable, @Param("deviceId") String deviceId);
 	
 	
 	

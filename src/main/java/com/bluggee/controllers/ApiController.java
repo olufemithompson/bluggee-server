@@ -29,7 +29,7 @@ import com.bluggee.repository.BlogSourceRepository;
 import com.bluggee.repository.ContentRepository;
 import com.bluggee.repository.RegIdRepository;
 import com.bluggee.repository.SearchTermRepository;
-import com.bluggee.search.SearchTermSearch;
+import com.bluggee.search.ContentSearch;
 import com.bluggee.utils.Util;
 import com.bluggee.utils.reponse.CategoryResponse;
 import com.bluggee.utils.reponse.WebResponse;
@@ -37,7 +37,10 @@ import com.bluggee.utils.reponse.WebResponse;
 @Controller
 public class ApiController {
 
-	 
+	 @Autowired
+	 private ContentSearch search;
+	
+	
 	 @Autowired
 	 SearchTermRepository searchRepository;
 	 
@@ -54,8 +57,6 @@ public class ApiController {
 	 BlogSourceRepository srepository;
 	 
 	 
-	 @Autowired
-	 private SearchTermSearch searchTermSearch;
 	 
 	 @Autowired
 	 AdsRepository adsRepository;
@@ -143,7 +144,7 @@ public class ApiController {
 	   * list category page
 	   */
 	  @RequestMapping("/api/category")
-	  public  @ResponseBody List<CategoryResponse> category() {
+	  public @ResponseBody List<CategoryResponse> category() {
 		  
 		  Iterable<BlogCategory> categories = bgrepository.findAll(); 
 		  List<CategoryResponse> responses = new ArrayList<CategoryResponse>();
@@ -159,13 +160,30 @@ public class ApiController {
 	  
 
 	  @RequestMapping("/api/reg")
-	  public  @ResponseBody String  register( @RequestParam(value="reg", required=false)String reg ) {
+	  public  @ResponseBody String  register( @RequestParam(value="reg", required=false)String reg,
+			  @RequestParam(value="devId", required=false)String devId
+			  
+			  ) {
 		  PageRequest pageable = new PageRequest(0,1);
-		  if(regRepository.findByUniqueId(pageable, reg).size() == 0){
+		  if(devId != null){
 			  RegId regs = new RegId();
+			  List<RegId> devices = regRepository.findByDevice(pageable, devId);
+			  if(devices.size()  > 0 ){
+				  regs = devices.get(0);
+			  }
+			  regs.setDeviceId(devId);
 			  regs.setReg(reg);
 			  regRepository.save(regs);
+		  }else{
+			  if(regRepository.findByUniqueId(pageable, reg).size() == 0){
+				  RegId regs = new RegId();
+				  regs.setReg(reg);
+				  regRepository.save(regs);
+			  }
 		  }
+		  
+		  
+		 
 		  return "success";
 	  }
 	  
@@ -178,6 +196,28 @@ public class ApiController {
 	  public  @ResponseBody Iterable<BlogSource> source(
 			   Model model) {
 		 return srepository.findAll();
+	  }
+	  
+	  
+	  
+	  
+	  /**
+//	   * Show search results for the given query.
+//	   *
+//	   * @param q The search query.
+//	   */
+	  @RequestMapping("/search")
+	  public @ResponseBody  List<Content> search(String q) {
+		
+		  
+	    List<Content> searchResults = null;
+	    try {
+	      searchResults = search.search(q);
+	    }
+	    catch (Exception ex) {
+	    	ex.printStackTrace();
+	    }
+	    return searchResults;
 	  }
 	
 }

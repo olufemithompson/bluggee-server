@@ -2,6 +2,11 @@ package com.bluggee;
 
 import java.util.ArrayList;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.hibernate.search.jpa.FullTextEntityManager;
+import org.hibernate.search.jpa.Search;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +21,9 @@ import com.bluggee.repository.ContentRepository;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
+	
+	
+	
     @Autowired
     ContentRepository contentRepository;
 
@@ -32,6 +40,11 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		
 	}
+	
+	
+	
+	
 
 }

@@ -32,7 +32,6 @@ import com.bluggee.repository.BlogCategoryRepository;
 import com.bluggee.repository.BlogSourceRepository;
 import com.bluggee.repository.ContentRepository;
 import com.bluggee.repository.SearchTermRepository;
-import com.bluggee.search.SearchTermSearch;
 import com.bluggee.utils.Util;
 import com.bluggee.utils.reponse.CategoryResponse;
 
@@ -60,8 +59,6 @@ public class MainController {
 	 AdsRepository adsRepository;
 	 
 	 
-	 @Autowired
-	 private SearchTermSearch searchTermSearch;
 	 
 	 
 	 @Value("${sitemapDirectory}")
@@ -191,23 +188,7 @@ public class MainController {
 //	  }
 	  
 	  
-	  /**
-	   * Show search results for the given query.
-	   *
-	   * @param q The search query.
-	   */
-	  @RequestMapping("/loadterm")
-	  @ResponseBody
-	  public List<SearchTerm> loadterms(String term, Model model) {
-		List<SearchTerm> searchResults = null;
-	    try {
-	      searchResults = searchTermSearch.search(term);
-	    }
-	    catch (Exception ex) {
-	    	ex.printStackTrace();
-	    }
-	    return searchResults;
-	  }
+	  
 	
 }
 

@@ -14,7 +14,6 @@ import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 
 @Entity
-@Indexed
 public class RegId {
 
     @Id
@@ -22,8 +21,10 @@ public class RegId {
 	private long id;
     
     
-    @Field
+ 
 	private String reg;
+	
+	private String deviceId;
 
 	
 	public RegId() {
@@ -46,5 +47,15 @@ public class RegId {
 		this.reg = reg;
 	}
 
+	public String getDeviceId() {
+		return deviceId;
+	}
+
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
+	}
+
+	
+	
 	
 }

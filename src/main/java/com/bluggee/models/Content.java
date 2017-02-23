@@ -11,8 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,33 +29,33 @@ public class Content {
     
     
     @Field
-	private String title;
-    
+ 	private String title;
+     
     @Field
- 	private String description;
+  	private String description;
     
-    @Field
+   
 	private String image;
     
-    @Field
+
    	private String url;
     
     
-    @Field
+   
    	private String originalUrl;
     
-    @Field
+  
     private String uniqueId;
     
-    @Field
+ 
     private Integer sitemapCompleted;
     
     
-    @Field
+
   	private String formattedTitle;
     
     
-    @Field
+   
   	private Date savedDate;
     
     @ManyToOne(fetch=FetchType.LAZY)

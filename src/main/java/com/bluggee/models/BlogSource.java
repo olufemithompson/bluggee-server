@@ -16,23 +16,22 @@ import org.hibernate.search.annotations.Indexed;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Indexed
 public class BlogSource {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
         
-    @Field
+   
 	private String name;
     
-    @Field
+   
 	private String image;
     
-    @Field
+    
    	private String link;
     
-    @Field
+  
    	private String description;
     
 

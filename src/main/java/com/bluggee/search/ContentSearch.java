@@ -60,7 +60,7 @@ public class ContentSearch {
 	  
 	    // execute search and return results (sorted by relevance as default)
 	    @SuppressWarnings("unchecked")
-	    List<Content> results = jpaQuery.getResultList();
+	    List<Content> results = jpaQuery.setMaxResults(5).getResultList();
 	    
 	    return results;
 	  } // method search

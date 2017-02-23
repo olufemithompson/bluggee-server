@@ -17,7 +17,6 @@ import com.bluggee.repository.BlogSourceAndCategoryRepository;
 import com.bluggee.repository.BlogSourceRepository;
 import com.bluggee.repository.ContentRepository;
 import com.bluggee.repository.SearchTermRepository;
-import com.bluggee.search.SearchTermSearch;
 
 @Controller
 public class AdminController {

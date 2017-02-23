@@ -10,14 +10,13 @@ import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 
 @Entity
-@Indexed
 public class BlogCategory {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
     
-    @Field
+   
 	private String name;
     
     
